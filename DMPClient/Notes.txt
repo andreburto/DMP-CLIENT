@@ -1,0 +1,4 @@
+﻿Dim dmp As DMPConnect = New DMPConnect()
+dmp.SetCredentials(txtUser.Text, txtPass.Text)
+dmp.AddParam("p", "init.*")
+txtResp.Text = dmp.GetParam(txtUrl.Text)
