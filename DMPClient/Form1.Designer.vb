@@ -22,30 +22,31 @@ Partial Class Form1
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cmbAddresses = New System.Windows.Forms.ComboBox()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnRemove = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.txtAddress = New System.Windows.Forms.TextBox()
+        Me.btnSetAddress = New System.Windows.Forms.Button()
+        Me.btnGetAddress = New System.Windows.Forms.Button()
+        Me.btnReboot = New System.Windows.Forms.Button()
         Me.txtPass = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnReboot = New System.Windows.Forms.Button()
-        Me.btnGetAddress = New System.Windows.Forms.Button()
-        Me.btnSetAddress = New System.Windows.Forms.Button()
-        Me.txtAddress = New System.Windows.Forms.TextBox()
+        Me.txtUser = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnShowip = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ComboBox1
+        'cmbAddresses
         '
-        Me.ComboBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.cmbAddresses.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(12, 12)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(235, 21)
-        Me.ComboBox1.TabIndex = 0
+        Me.cmbAddresses.FormattingEnabled = True
+        Me.cmbAddresses.Location = New System.Drawing.Point(12, 12)
+        Me.cmbAddresses.Name = "cmbAddresses"
+        Me.cmbAddresses.Size = New System.Drawing.Size(235, 21)
+        Me.cmbAddresses.TabIndex = 0
         '
         'btnAdd
         '
@@ -72,6 +73,7 @@ Partial Class Form1
         Me.GroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Controls.Add(Me.btnShowip)
         Me.GroupBox1.Controls.Add(Me.txtAddress)
         Me.GroupBox1.Controls.Add(Me.btnSetAddress)
         Me.GroupBox1.Controls.Add(Me.btnGetAddress)
@@ -88,26 +90,49 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "DMP Controls"
         '
-        'Label1
+        'txtAddress
         '
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 30)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 24)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "User ID:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtUser
-        '
-        Me.txtUser.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtUser.Location = New System.Drawing.Point(98, 30)
-        Me.txtUser.Name = "txtUser"
-        Me.txtUser.Size = New System.Drawing.Size(269, 26)
-        Me.txtUser.TabIndex = 1
+        Me.txtAddress.Location = New System.Drawing.Point(13, 205)
+        Me.txtAddress.Margin = New System.Windows.Forms.Padding(10)
+        Me.txtAddress.Name = "txtAddress"
+        Me.txtAddress.Size = New System.Drawing.Size(347, 29)
+        Me.txtAddress.TabIndex = 7
+        '
+        'btnSetAddress
+        '
+        Me.btnSetAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnSetAddress.Location = New System.Drawing.Point(13, 244)
+        Me.btnSetAddress.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
+        Me.btnSetAddress.Name = "btnSetAddress"
+        Me.btnSetAddress.Size = New System.Drawing.Size(347, 39)
+        Me.btnSetAddress.TabIndex = 6
+        Me.btnSetAddress.Text = "Set Address"
+        Me.btnSetAddress.UseVisualStyleBackColor = True
+        '
+        'btnGetAddress
+        '
+        Me.btnGetAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnGetAddress.Location = New System.Drawing.Point(13, 153)
+        Me.btnGetAddress.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
+        Me.btnGetAddress.Name = "btnGetAddress"
+        Me.btnGetAddress.Size = New System.Drawing.Size(347, 39)
+        Me.btnGetAddress.TabIndex = 5
+        Me.btnGetAddress.Text = "Get Address"
+        Me.btnGetAddress.UseVisualStyleBackColor = True
+        '
+        'btnReboot
+        '
+        Me.btnReboot.Location = New System.Drawing.Point(13, 101)
+        Me.btnReboot.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
+        Me.btnReboot.Name = "btnReboot"
+        Me.btnReboot.Size = New System.Drawing.Size(161, 39)
+        Me.btnReboot.TabIndex = 4
+        Me.btnReboot.Text = "Reboot DMP"
+        Me.btnReboot.UseVisualStyleBackColor = True
         '
         'txtPass
         '
@@ -130,51 +155,37 @@ Partial Class Form1
         Me.Label2.Text = "Password:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'btnReboot
+        'txtUser
         '
-        Me.btnReboot.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.txtUser.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnReboot.Location = New System.Drawing.Point(13, 101)
-        Me.btnReboot.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
-        Me.btnReboot.Name = "btnReboot"
-        Me.btnReboot.Size = New System.Drawing.Size(347, 39)
-        Me.btnReboot.TabIndex = 4
-        Me.btnReboot.Text = "Reboot DMP"
-        Me.btnReboot.UseVisualStyleBackColor = True
+        Me.txtUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtUser.Location = New System.Drawing.Point(98, 30)
+        Me.txtUser.Name = "txtUser"
+        Me.txtUser.Size = New System.Drawing.Size(269, 26)
+        Me.txtUser.TabIndex = 1
         '
-        'btnGetAddress
+        'Label1
         '
-        Me.btnGetAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnGetAddress.Location = New System.Drawing.Point(13, 153)
-        Me.btnGetAddress.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
-        Me.btnGetAddress.Name = "btnGetAddress"
-        Me.btnGetAddress.Size = New System.Drawing.Size(347, 39)
-        Me.btnGetAddress.TabIndex = 5
-        Me.btnGetAddress.Text = "Get Address"
-        Me.btnGetAddress.UseVisualStyleBackColor = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(6, 30)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(3, 5, 3, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(86, 24)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "User ID:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'btnSetAddress
+        'btnShowip
         '
-        Me.btnSetAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.btnSetAddress.Location = New System.Drawing.Point(13, 244)
-        Me.btnSetAddress.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
-        Me.btnSetAddress.Name = "btnSetAddress"
-        Me.btnSetAddress.Size = New System.Drawing.Size(347, 39)
-        Me.btnSetAddress.TabIndex = 6
-        Me.btnSetAddress.Text = "Set Address"
-        Me.btnSetAddress.UseVisualStyleBackColor = True
-        '
-        'txtAddress
-        '
-        Me.txtAddress.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtAddress.Location = New System.Drawing.Point(13, 205)
-        Me.txtAddress.Margin = New System.Windows.Forms.Padding(10)
-        Me.txtAddress.Name = "txtAddress"
-        Me.txtAddress.Size = New System.Drawing.Size(347, 29)
-        Me.txtAddress.TabIndex = 7
+        Me.btnShowip.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnShowip.Location = New System.Drawing.Point(194, 101)
+        Me.btnShowip.Margin = New System.Windows.Forms.Padding(10, 10, 10, 3)
+        Me.btnShowip.Name = "btnShowip"
+        Me.btnShowip.Size = New System.Drawing.Size(166, 39)
+        Me.btnShowip.TabIndex = 8
+        Me.btnShowip.Text = "Show IP"
+        Me.btnShowip.UseVisualStyleBackColor = True
         '
         'Form1
         '
@@ -184,7 +195,7 @@ Partial Class Form1
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnRemove)
         Me.Controls.Add(Me.btnAdd)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cmbAddresses)
         Me.Name = "Form1"
         Me.Text = "DMP CLIENT"
         Me.GroupBox1.ResumeLayout(False)
@@ -192,7 +203,7 @@ Partial Class Form1
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents cmbAddresses As System.Windows.Forms.ComboBox
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents btnRemove As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -204,5 +215,6 @@ Partial Class Form1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtUser As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents btnShowip As System.Windows.Forms.Button
 
 End Class

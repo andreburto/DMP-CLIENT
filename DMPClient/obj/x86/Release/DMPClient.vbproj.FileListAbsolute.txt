@@ -1,0 +1,16 @@
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\bin\Release\DMPClient.exe.config
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\bin\Release\DMPClient.exe
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\bin\Release\DMPClient.pdb
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\bin\Release\DMPClient.xml
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\ResolveAssemblyReference.cache
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\DMPClient.Form1.resources
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\DMPClient.Resources.resources
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\GenerateResource-ResGen.read.1.tlog
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\GenerateResource-ResGen.write.1.tlog
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\DMPClient.exe
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\DMPClient.xml
+C:\andy\html\code\vb\DMP CLIENT\DMPClient\obj\x86\Release\DMPClient.pdb
+C:\Documents and Settings\Andrew\My Documents\Dropbox\wccs_work\DMPClient.exe.config
+C:\Documents and Settings\Andrew\My Documents\Dropbox\wccs_work\DMPClient.exe
+C:\Documents and Settings\Andrew\My Documents\Dropbox\wccs_work\DMPClient.pdb
+C:\Documents and Settings\Andrew\My Documents\Dropbox\wccs_work\DMPClient.xml

@@ -48,7 +48,7 @@
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
+    <OutputPath>..\..\..\..\..\..\Documents and Settings\Andrew\My Documents\Dropbox\wccs_work\</OutputPath>
     <DocumentationFile>DMPClient.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <DebugSymbols>true</DebugSymbols>
@@ -85,9 +85,12 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\DMPCommands.vb" />
     <Compile Include="Classes\DMPConnect.vb" />
+    <Compile Include="Classes\DMPList.vb" />
     <Compile Include="Classes\DMPParse.vb" />
     <Compile Include="Classes\DMPValue.vb" />
+    <Compile Include="ErrorMsg.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>

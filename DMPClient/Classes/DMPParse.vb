@@ -5,28 +5,35 @@ Imports System.Text
 Imports System.Text.Encoding
 Imports Microsoft
 
-Public Class DMPParse
+Namespace DMP
+    Public Class DMPParse
 
-    Private vals() As ArrayList
+        Private vals As Hashtable = New Hashtable()
 
-    Public Sub New()
-    End Sub
+        Public Sub New()
+        End Sub
 
-    Public Sub New(ByVal str As String)
-        ParseString(str)
-    End Sub
+        Public Sub New(ByVal str As String)
+            ParseString(str)
+        End Sub
 
-    Public Sub ParseString(ByVal str As String)
-        str = str.Replace(vbCrLf, vbLf)
-        Dim lines() As String = str.Split(vbLf)
+        Public Function GetValue(ByVal key As String) As DMPValue
+            If vals.ContainsKey(key) = False Then Return New DMPValue("No such key", "ERROR", "No value with that key")
+            Return vals(key)
+        End Function
 
-        For Each line As String In lines
-            If line.Length <= 1 Then Continue For
-            Dim parts() As String = line.Split(vbTab)
-            If parts.Length = 3 Then
+        Public Sub ParseString(ByVal str As String)
+            str = str.Replace(vbCrLf, vbLf)
+            Dim lines() As String = str.Split(vbLf)
 
-            End If
-        Next
-    End Sub
+            For Each line As String In lines
+                If line.Length <= 1 Then Continue For
+                Dim parts() As String = line.Split(vbTab)
+                If parts.Length = 3 Then
+                    vals(parts(0)) = New DMPValue(parts(0), parts(1), parts(2))
+                End If
+            Next
+        End Sub
 
-End Class
+    End Class
+End Namespace
