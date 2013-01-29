@@ -1,12 +1,14 @@
 ﻿Imports System
 Imports System.Collections
 Imports System.IO
+Imports System.Security
 Imports System.Xml
 
 Namespace DMP
     Public Class DMPList
 
         Private fn As String = ""
+        Public addreses As Collection = New Collection
 
         Public Sub New(ByVal filename As String)
             fn = filename
@@ -29,8 +31,11 @@ Namespace DMP
             Dim theFile As String = FullFilePath()
             Dim xml As String = "<addresses>" + vbCrLf
 
-            For Each item As String In col
-                xml = xml + "  <address>" + item + "</address>" + vbCrLf
+            For Each item As DMPItem In col
+                xml = xml + " <address>" + vbCrLf
+                xml = xml + "  <url>" + item.url + "</url>" + vbCrLf
+                xml = xml + "  <title>" + item.title + "</title>" + vbCrLf
+                xml = xml + " </address>" + vbCrLf
             Next
 
             xml = xml + "</addresses>" + vbCrLf
@@ -46,23 +51,32 @@ Namespace DMP
             End Try
         End Function
 
-        Public Function ReadXml() As Array
+        Public Function ReadXml() As Collection
             Dim theFile As String = FullFilePath()
-            Dim list As New ArrayList
 
             Try
                 Dim xmlFile As New XmlDocument
                 xmlFile.Load(theFile)
 
                 For Each n As XmlNode In xmlFile.SelectNodes("/addresses/address")
-                    list.Add(n.InnerText)
+                    addreses.Add(New DMPItem(n.Item("url").InnerText, n.Item("title").InnerText), n.Item("url").InnerText)
                 Next
             Catch ex As Exception
-                list.Clear()
+                Me.addreses.Clear()
             End Try
 
-            Return list.ToArray
+
+            Return Me.addreses
         End Function
 
+    End Class
+
+    Public Class DMPItem
+        Public url As String
+        Public title As String
+        Public Sub New(ByVal u As String, ByVal t As String)
+            Me.url = SecurityElement.Escape(u)
+            Me.title = SecurityElement.Escape(t)
+        End Sub
     End Class
 End Namespace
