@@ -11,14 +11,15 @@
 
         Public Function GetWebPage() As String
             Dim url As String = ""
-            Me.AddParam("p", "init.STARTUP_URL")
+            Me.AddParam("p", "init.TVZILLA_URL")
             Dim dp As New DMPParse(Me.GetParam())
-            Return dp.GetValue("init.STARTUP_URL").value
+            Return dp.GetValue("init.TVZILLA_URL").value
         End Function
 
         Public Function SetWebPage(ByVal url As String) As Boolean
             Me.AddParam("init.BROWSER_CMD", url)
             Me.AddParam("init.TVZILLA_URL", url)
+            Me.AddParam("init.STARTUP_URL", url)
             Return Me.SetParam()
         End Function
 
