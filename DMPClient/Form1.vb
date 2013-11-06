@@ -97,6 +97,7 @@ Public Class Form1
         btnShowip.Enabled = yesno
         btnSetAddress.Enabled = yesno
         btnGetAddress.Enabled = yesno
+        btnSetAll.Enabled = yesno
     End Sub
 
     Private Sub txtUser_TextChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles txtUser.TextChanged
@@ -131,6 +132,25 @@ Public Class Form1
     End Sub
 
     Private Sub btnSetAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSetAll.Click
-
+        If txtAddress.Text.Length = 0 Then
+            ErrorMsg.Show("There's no address to set...")
+            Exit Sub
+        End If
+        Dim problems As ArrayList = New ArrayList
+        Me.UnactivateButtons(False)
+        For Each item As DMPItem In dmps
+            Me.Text = Me.Title & " - changing " & item.url
+            dc = New DMP.DMPCommands(item.url, txtUser.Text, txtPass.Text)
+            If dc.SetWebPage(txtAddress.Text) = True Then dc.SaveMib() Else problems.Add(item.url)
+            Threading.Thread.Sleep(500)
+        Next
+        Me.UnactivateButtons(True)
+        If problems.Count > 0 Then
+            Dim p As String = "Could not set: "
+            For Each i As String In problems
+                p &= vbCrLf & i.ToString
+            Next
+            ErrorMsg.Show(p)
+        End If
     End Sub
 End Class
