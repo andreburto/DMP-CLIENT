@@ -1,0 +1,8 @@
+*.sln
+*.sln.docstates
+*.suo
+*.user
+*.manifest
+
+DMPClient/bin/
+DMPClient/obj/
