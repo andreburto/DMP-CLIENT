@@ -10,7 +10,6 @@
         ' Add any initialization after the InitializeComponent() call.
         txtAddress.Text = url
         txtTitle.Text = url
-
     End Sub
 
     Private Sub btnCancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancel.Click

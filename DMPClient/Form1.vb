@@ -1,40 +1,47 @@
-﻿Public Class Form1
+﻿Imports DMPClient.DMP
+
+Public Class Form1
 
     Private dl As DMP.DMPList
     Private dc As DMP.DMPCommands
+    Public dmps As Collection
     Private Start As String = "Addresses go here..."
 
     Private Sub Form1_FormClosed(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosedEventArgs) Handles Me.FormClosed
         Me.Hide()
-
-        Dim tempList As New Collection
-        For Each a As String In cmbAddresses.Items
-            If Not a.ToString = Start Then
-                tempList.Add(a.ToString)
-            End If
-        Next
-        dl.WriteXml(tempList)
+        dl.WriteXml(dmps)
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         CheckField()
         dl = New DMP.DMPList("addresses.xml")
         If dl.CheckForXml = True Then
-            Dim tempList As Array = dl.ReadXml
-
-            For Each a As String In tempList
-                cmbAddresses.Items.Add(a.ToString)
+            dmps = dl.ReadXml
+            For Each current As DMPItem In dmps
+                cmbAddresses.Items.Add(current.url)
             Next
         End If
         cmbAddresses.Text = Start
     End Sub
 
     Private Sub btnAdd_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        If cmbAddresses.Text.Length > 0 Then cmbAddresses.Items.Add(cmbAddresses.Text) Else ErrorMsg.Show("Enter an address...")
+        If cmbAddresses.Text.Length > 0 Then
+            'cmbAddresses.Items.Add(cmbAddresses.Text)
+            Dim address As frmAddAddress = New frmAddAddress(cmbAddresses.Text)
+            address.ShowDialog()
+            If address.DialogResult = DialogResult.OK Then
+                cmbAddresses.Items.Add(address.di.url)
+            End If
+            address.Close()
+            address.Dispose()
+        Else
+            ErrorMsg.Show("Enter an address...")
+        End If
     End Sub
 
     Private Sub btnRemove_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRemove.Click
         If cmbAddresses.Text.Length > 0 Then
+            dmps.Remove(cmbAddresses.Text)
             cmbAddresses.Items.RemoveAt(cmbAddresses.SelectedIndex)
             cmbAddresses.Text = Start
         Else
@@ -105,4 +112,7 @@
         CheckField()
     End Sub
 
+    Private Sub btnSetAll_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSetAll.Click
+
+    End Sub
 End Class

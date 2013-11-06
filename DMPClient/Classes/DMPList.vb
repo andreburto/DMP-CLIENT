@@ -8,7 +8,7 @@ Namespace DMP
     Public Class DMPList
 
         Private fn As String = ""
-        Public addreses As Collection = New Collection
+        Public addreses As Collection = New Collection()
 
         Public Sub New(ByVal filename As String)
             fn = filename
@@ -64,7 +64,6 @@ Namespace DMP
             Catch ex As Exception
                 Me.addreses.Clear()
             End Try
-
 
             Return Me.addreses
         End Function
